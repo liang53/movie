@@ -30,6 +30,7 @@ gem 'jquery-rails'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor' # heroku
 end
 
 group :development, :test do
