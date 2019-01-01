@@ -5,9 +5,12 @@ require 'net/http'
 
 module MovieDbHelper
   HOST_URL = "https://api.themoviedb.org/3"
+  HEROKU_KEY = ENV['API_KEY']
+  # heroku securing api key
+  # https://devcenter.heroku.com/articles/config-vars
 
   def get(path) # code generated from moviedb website
-    url = URI("#{HOST_URL}#{path}#{API_KEY}")
+    url = URI("#{HOST_URL}#{path}#{HEROKU_KEY}")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
