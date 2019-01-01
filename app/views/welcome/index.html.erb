@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <h4 class = "page-title">Top Picks </h4>
+
+  <div class = "jumbotron">
+    <%= render partial: "tvshows/discover", locals: { tvshows: @tvshows } %>
+  </div>
+
+
+  <div class = "jumbotron">
+    <%= render partial: "movies/discover", locals: { movies: @movies } %>
+  </div>
+
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container-fluid fill-height">
+  <div class = "row" >
+
+    <div class= "col-4">
+      <br>
+      <h1 class="card-title"><%= @movie['name'] %></h1>
+      <p class="card-text">
+        <%= @movie['vote_average']%> Rating
+        <br>
+        <%= @movie['vote_count']%> Votes
+      </p>
+    </div>
+
+    <div class= "col-8">
+      <% poster_path = @movie['poster_path'] %>
+      <% if poster_path %>
+        <img src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @movie['name'] %>" >
+      <% end %>
+    </div>
+
+
+  </div>
+
+
+  <div class = "row">
+    <div class="col-8">
+        <h4>ABOUT</h4>
+        <span class = "show-text"><%= @movie['overview'] %></span>
+    </div>
+
+    <div class = "col-4">
+    </div>
+  </div>
+</div>

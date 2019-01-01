@@ -1,0 +1,76 @@
+
+<div class="container-fluid">
+  <% if @search.nil? || @search.empty? %>
+    <h3 class="page-title">0 Results for '<%= @search %>'</h3>
+  <% else %>
+    <h3 class="page-title">Search Results for '<%= @search %>'</h3>
+
+
+    <% @search_results.each do |result| %>
+      <% media = result["media_type"] %>
+      <% rating = result['vote_count']%>
+      <% poster_path = result['poster_path'] %>
+      <% name = result['name'] %>
+
+
+      <% if media == "movie" %>
+        <div class="d-inline-flex justify-content-between" style="width: 14rem;">
+          <%= link_to(controller: 'movies', action: 'show', id:result['id']) do %>
+
+              <div class="card">
+                  <!-- https://developers.themoviedb.org/3/getting-started/images -->
+                  <% if poster_path %>
+                    <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
+                  <% end %>
+
+                  <div class="card-body">
+                    <p class="card-title">
+                      <%= name %>
+                    </p>
+
+                    <p class="card-subtitle">
+                      <%= result['vote_average'] %> Rating *
+                      <%= rating %> Votes
+                    </p>
+                  </div>
+
+                </div>
+          <% end %>
+        </div>
+
+      <% elsif media == "tv" %>
+          <div class="d-inline-flex justify-content-between" style="width: 14rem;">
+            <%= link_to(controller: 'tvshows', action: 'show', id:result['id']) do %>
+
+                <div class="card">
+                    <!-- https://developers.themoviedb.org/3/getting-started/images -->
+                    <% if poster_path %>
+                      <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
+                    <% end %>
+
+                    <div class="card-body">
+                      <p class="card-title">
+                        <%= name %>
+                      </p>
+
+                      <p class="card-subtitle">
+                        <%= result['origin_country'].first %> *
+                        <%= result['vote_average'] %> Rating *
+                        <%= rating %> Votes
+                      </p>
+                    </div>
+
+                  </div>
+            <% end %>
+          </div>
+      <% end %>
+
+
+
+    <% end %>
+
+
+
+
+  <% end %>
+</div>

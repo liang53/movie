@@ -1,0 +1,34 @@
+<div class="container-fluid fill-height">
+  <div class = "row" >
+
+    <div class= "col-4">
+      <br>
+      <h1 class="card-title"><%= @tvshow['name'] %></h1>
+      <p class="card-text">
+        <%= @tvshow['vote_average']%> Rating
+        <br>
+        <%= @tvshow['vote_count']%> Votes
+      </p>
+    </div>
+
+    <div class= "col-8">
+      <% poster_path = @tvshow['poster_path'] %>
+      <% if poster_path %>
+        <img src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
+      <% end %>
+    </div>
+
+
+  </div>
+
+
+  <div class = "row">
+    <div class="col-8">
+        <h4>ABOUT</h4>
+        <span class = "show-text"><%= @tvshow['overview'] %></span>
+    </div>
+
+    <div class = "col-4">
+    </div>
+  </div>
+</div>

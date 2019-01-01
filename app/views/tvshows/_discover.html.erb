@@ -1,0 +1,33 @@
+<h2>TV Shows</h2>
+
+
+<% @tvshows.each do |tvshow| %>
+  <% rating = tvshow['vote_count']%>
+  <% poster_path = tvshow['poster_path'] %>
+
+
+  <div class="d-inline-flex justify-content-between" style="width: 14rem;">
+    <%= link_to(controller: 'tvshows', action: 'show', id:tvshow['id']) do %>
+
+        <div class="card">
+            <!-- https://developers.themoviedb.org/3/getting-started/images -->
+            <% if poster_path %>
+              <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= tvshow['name'] %>" >
+            <% end %>
+
+            <div class="card-body">
+              <p class="card-title">
+                <%= tvshow['name'] %>
+              </p>
+
+              <p class="card-subtitle">
+                <%= tvshow['origin_country'].first %> *
+                <%= tvshow['vote_average'] %> Rating *
+                <%= rating %> Votes
+              </p>
+            </div>
+
+          </div>
+    <% end %>
+  </div>
+<% end %>

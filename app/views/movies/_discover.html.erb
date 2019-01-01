@@ -1,0 +1,32 @@
+<h2>Movies</h2>
+
+
+<% @movies.each do |movie| %>
+  <% rating = movie['vote_count'].round %>
+  <% poster_path = movie['poster_path'] %>
+
+
+  <div class="d-inline-flex justify-content-between" style="width: 14rem;">
+    <%= link_to(controller: 'movies', action: 'show', id:movie['id']) do %>
+      <div class="card">
+
+        <!-- https://developers.themoviedb.org/3/getting-started/images -->
+          <% if poster_path %>
+            <img class="fit-pic" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= movie['name'] %>" >
+          <% end %>
+
+          <div class="card-body">
+            <p class="card-title">
+              <%= movie['title'] %>
+            </p>
+            <p class="card-subtitle">
+              <%= movie['vote_average'] %> Rating *
+              <%= rating %> Votes
+            </p>
+          </div>
+
+
+      </div>
+    <% end %>
+  </div>
+<% end %>
