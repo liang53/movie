@@ -16,4 +16,13 @@ RSpec.describe TvshowsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    it "returns id 44217 to Vikings Hash" do
+      # two hashes returned - not found  & backdrop_path 
+      get :show, params:{ id: 44217}
+      expect(assigns(:tvshow)).to be_a(Hash)
+      expect(:tvshow['name']).to eq "Vikings"
+    end
+  end
+
 end

@@ -6,7 +6,8 @@ require 'net/http'
 module MovieDbHelper
   HOST_URL = "https://api.themoviedb.org/3"
   # heroku securing api key
-  # https://devcenter.heroku.com/articles/config-vars
+  # https://devcenter.heroku.com/articles/config-vars ENV['API_KEY']
+
 
   def get(path) # code generated from moviedb website
     url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")

@@ -16,4 +16,13 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    it "returns id 297802 to Aquaman Hash" do
+      # two hashes returned - not found  & backdrop_path 
+      get :show, params:{ id: 297802}
+      expect(assigns(:movie)).to be_a(Hash)
+      expect(:movie['name']).to eq "Aquaman"
+    end
+  end
+
 end
