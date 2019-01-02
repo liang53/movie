@@ -12,7 +12,7 @@
         <%= link_to(controller: 'movies', action: 'show', id:movie['id']) do %>
         <!-- https://developers.themoviedb.org/3/getting-started/images -->
           <% if poster_path %>
-            <img class="fit-pic" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= movie['name'] %>" >
+            <img class="w-100" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= movie['name'] %>" >
           <% end %>
         <% end %>
 
