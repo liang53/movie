@@ -1,4 +1,7 @@
+<!-- landing page photo carousel for currently trending movies/shows -->
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <!-- creating the underscore photo tracker -->
   <ol class="carousel-indicators">
     <% @trending.each_with_index do |show,n| %>
       <% if n == 0 %>
@@ -9,8 +12,8 @@
     <% end %>
   </ol>
 
+  <!-- wrapper for the images -->
   <div class="carousel-inner">
-
     <% @trending.each_with_index do |show, n| %>
       <% poster_path = show['poster_path'] %>
       <% if n == 0 %>
@@ -30,9 +33,7 @@
 
   </div>
 
-
-
-
+  <!-- buttons for previous and next -->
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -44,17 +45,11 @@
 </div>
 
 
-<script type="text/javascript">
-  $(document).on('turbolinks:load', function(){
-     $('.carousel').carousel('cycle')({
-        interval: 2000
-     });
-  });
-</script>
 
-
+<!--  -----------------Popular tv shows and movies ------------ -->
 <div class="container-fluid">
-  <h4 class = "page-title">Top Picks </h4>
+  <h4 class = "page-title"><br>Top Picks </h4>
+
 
   <div class = "jumbotron">
     <%= render partial: "tvshows/discover", locals: { tvshows: @tvshows } %>
