@@ -19,39 +19,12 @@
 
 
 
-      <% if media == "movie" %>
+      <% if media == "movie" && poster_path %>
         <div class="d-inline-flex justify-content-between" style="width: 14rem;">
-
-
               <div class="card">
                   <!-- https://developers.themoviedb.org/3/getting-started/images -->
-                  <%= link_to(controller: 'movies', action: 'show', id:result['id']) do %>
-                    <% if poster_path %>
-                      <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
-                    <% end %>
-                  <% end %>
 
-                  <div class="card-body">
-                    <p class="card-title">
-                      <%= name %>
-                    </p>
-
-                    <p class="card-info">
-                      <%= result['vote_average'] %> Rating *
-                      <%= rating %> Votes
-                    </p>
-                  </div>
-
-                </div>
-        </div>
-
-      <% elsif media == "tv" %>
-          <div class="d-inline-flex justify-content-between" style="width: 14rem;">
-            <%= link_to(controller: 'tvshows', action: 'show', id:result['id']) do %>
-
-                <div class="card">
-                    <!-- https://developers.themoviedb.org/3/getting-started/images -->
-                    <% if poster_path %>
+                    <%= link_to(controller: 'movies', action: 'show', id:result['id']) do %>
                       <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
                     <% end %>
 
@@ -60,22 +33,39 @@
                         <%= name %>
                       </p>
 
-                      <p class="card-subtitle">
-                        <%= result['origin_country'].first %> *
-                        <%= result['vote_average'] %> Rating *
-                        <%= rating %> Votes
+                      <p class="card-info">
+                        <%= result['vote_average'] %> <span class="ion-star"></span>
+                        <%= rating %> <span class="ion-person-add"></span>
                       </p>
                     </div>
 
-                  </div>
-            <% end %>
+                </div>
+        </div>
+
+      <% elsif media == "tv" && poster_path %>
+          <div class="d-inline-flex justify-content-between" style="width: 14rem;">
+                <div class="card">
+                    <!-- https://developers.themoviedb.org/3/getting-started/images -->
+
+                      <%= link_to(controller: 'tvshows', action: 'show', id:result['id']) do %>
+                        <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
+                      <% end %>
+
+                      <div class="card-body">
+                        <p class="card-title">
+                          <%= name %>
+                        </p>
+
+                        <p class="card-info">
+                          <%= result['origin_country'].first %> <span class="ion-flag"></span>
+                          <%= result['vote_average'] %> <span class="ion-star"></span>
+                          <%= rating %> <span class="ion-person-add"></span>
+                        </p>
+                      </div>
+                </div>
           </div>
       <% end %>
 
-
-
     <% end %>
-
-
   <% end %>
 </div>
