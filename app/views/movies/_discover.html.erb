@@ -6,27 +6,28 @@
   <% poster_path = movie['poster_path'] %>
 
 
-  <div class="d-inline-flex justify-content-between" style="width: 14rem;">
-    <%= link_to(controller: 'movies', action: 'show', id:movie['id']) do %>
-      <div class="card">
+  <div class="d-inline-flex justify-content-between" style="width: 13rem;">
 
+      <div class="card">
+        <%= link_to(controller: 'movies', action: 'show', id:movie['id']) do %>
         <!-- https://developers.themoviedb.org/3/getting-started/images -->
           <% if poster_path %>
             <img class="fit-pic" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= movie['name'] %>" >
           <% end %>
+        <% end %>
 
           <div class="card-body">
             <p class="card-title">
               <%= movie['title'] %>
             </p>
-            <p class="card-subtitle">
-              <%= movie['vote_average'] %> Rating *
-              <%= rating %> Votes
+            <p class="card-info">
+              <%= movie['vote_average'] %>  <span class="ion-star"></span>
+              <%= rating %> <span class="ion-person-add"></span>
             </p>
           </div>
 
 
       </div>
-    <% end %>
+
   </div>
 <% end %>

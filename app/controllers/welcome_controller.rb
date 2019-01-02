@@ -9,6 +9,10 @@ class WelcomeController < ApplicationController
     #discover movies
     response = discover_movies()
     @movies = response['results']
+
+    #carousel gallery
+    response = trending()
+    @trending = response['results']
   end
 
   def show

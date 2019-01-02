@@ -3,18 +3,26 @@
 
     <div class= "col-4">
       <br>
-      <h1 class="card-title"><%= @tvshow['name'] %></h1>
+      <h1 class="card-title"><%= @tvshow['name'] %> <%= @tvshow['first_air_date'][0,4]%></h1>
       <p class="card-text">
-        <%= @tvshow['vote_average']%> Rating
+        <%= @tvshow['vote_average']%> <span class="ion-star"></span>
         <br>
-        <%= @tvshow['vote_count']%> Votes
+        <%= @tvshow['vote_count']%> <span class="ion-person-add"></span>
+        <br>
+        <%= @tvshow['origin_country'].first %> <span class="ion-flag"></span>
+        <br>
+        <% @tvshow['genres'].each do |genre| %>
+          <%=  genre['name'] %> .
+        <% end %>
+
+
       </p>
     </div>
 
-    <div class= "col-8">
+    <div class= "col-8 gallery">
       <% poster_path = @tvshow['poster_path'] %>
       <% if poster_path %>
-        <img src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
+        <img class ="w-100" src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
       <% end %>
     </div>
 
@@ -23,8 +31,42 @@
 
 
   <div class = "row">
-    <div class="col-8">
+    <div class="col-6 jumbotron">
         <h4>ABOUT</h4>
+        <span class = "show-text"><%= @tvshow['overview'] %></span>
+    </div>
+
+    <div class = "col-6 ">
+      <br>
+      <ul class="list-unstyled ">
+        <li class="media">
+
+          <% poster_path = @tvshow['last_episode_to_air']["still_path"] %>
+          <% if poster_path %>
+            <br>
+            <img class ="mr-3" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
+          <% end %>
+          <!-- <div class="media-body"> -->
+            <h5 class="mt-0 mb-1">Last Episode: <%= @tvshow['last_episode_to_air']["name"] %></h5>
+          <!-- </div> -->
+        </li>
+        <li class="media my-4">
+          <% poster_path = @tvshow['next_episode_to_air']["still_path"] %>
+          <% if poster_path %>
+            <img class ="mr-3" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
+          <% end %>
+          <!-- <div class="media-body"> -->
+            <h5 class="mt-0 mb-1">Next Episode: <%= @tvshow['next_episode_to_air']["name"] %></h5>
+          <!-- </div> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class = "row">
+    <div class="col-8 jumbotron">
+        <h4>Cast</h4>
         <span class = "show-text"><%= @tvshow['overview'] %></span>
     </div>
 

@@ -8,7 +8,6 @@ module MovieDbHelper
   # heroku securing api key
   # https://devcenter.heroku.com/articles/config-vars ENV['API_KEY']
 
-
   def get(path) # code generated from moviedb website
     url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")
 
@@ -52,6 +51,12 @@ module MovieDbHelper
     # https://developers.themoviedb.org/3/find/find-by-id
     path = "/#{type}/#{id}?language=en-US&api_key="
     response = get(path)
+  end
+
+  def trending
+    path = "/trending/all/day?api_key="
+    response = get(path)
+    return response
   end
 
 end

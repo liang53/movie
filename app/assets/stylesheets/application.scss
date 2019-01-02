@@ -14,3 +14,40 @@
  *= require_self
  */
  @import "bootstrap";
+
+.card-info{
+  font-size: .8rem;
+}
+
+.ion-star {
+    color: goldenrod;
+    font-size: 1rem;
+}
+
+.ion-person-add {
+    color: dodgerblue;
+    font-size: 1rem;
+}
+
+.gallery{
+  object-fit: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-height: 30rem;
+  max-height: 30rem;
+  overflow: hidden;
+}
+
+.gallery-image{
+  transform: translateY(-20%);
+}
+
+.caption{
+  background-color: black;
+  // opacity: 0.5;
+}
+
+.show-text{
+  font-size: .8rem;
+}

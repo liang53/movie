@@ -3,18 +3,24 @@
 
     <div class= "col-4">
       <br>
-      <h1 class="card-title"><%= @movie['name'] %></h1>
+      <h1 class="card-title"><%= @movie['title'] %> <%= @movie['release_date'][0,4]%></h1>
       <p class="card-text">
-        <%= @movie['vote_average']%> Rating
+        <%= @movie['vote_average']%> <span class="ion-star"></span>
         <br>
-        <%= @movie['vote_count']%> Votes
+        <%= @movie['vote_count']%> <span class="ion-person-add"></span>
+        <br>
+        <% @movie['genres'].each do |genre| %>
+          <%=  genre['name'] %> .
+        <% end %>
+        <br>
+
       </p>
     </div>
 
-    <div class= "col-8">
+    <div class= "col-8 gallery">
       <% poster_path = @movie['poster_path'] %>
       <% if poster_path %>
-        <img src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @movie['name'] %>" >
+        <img class= "w-100" src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @movie['name'] %>" >
       <% end %>
     </div>
 
@@ -23,8 +29,8 @@
 
 
   <div class = "row">
-    <div class="col-8">
-        <h4>ABOUT</h4>
+    <div class="col-8 jumbotron">
+        <h4 >ABOUT</h4>
         <span class = "show-text"><%= @movie['overview'] %></span>
     </div>
 

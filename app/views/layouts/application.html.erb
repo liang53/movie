@@ -6,6 +6,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
   </head>
 
   <body>
@@ -14,10 +19,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><%= link_to "Home", root_path %><span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+
+            <%= link_to "Home", root_path, class:"nav-link" %><span class="sr-only">(current)</span>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "TV Shows", tvshows_index_path, class:"nav-link" %><span class="sr-only">(current)</span>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Movies", movies_index_path, class:"nav-link" %><span class="sr-only">(current)</span>
           </li>
 
         </ul>
@@ -31,9 +46,12 @@
       </div>
     </nav>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <%= yield %>
+
+
   </body>
 </html>

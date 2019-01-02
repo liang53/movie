@@ -6,13 +6,16 @@
   <% poster_path = tvshow['poster_path'] %>
 
 
-  <div class="d-inline-flex justify-content-between" style="width: 14rem;">
-    <%= link_to(controller: 'tvshows', action: 'show', id:tvshow['id']) do %>
+  <div class="d-inline-flex justify-content-between" style="width: 13rem;">
+
 
         <div class="card">
-            <!-- https://developers.themoviedb.org/3/getting-started/images -->
-            <% if poster_path %>
-              <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= tvshow['name'] %>" >
+            <%= link_to(controller: 'tvshows', action: 'show', id:tvshow['id']) do %>
+              <!-- https://developers.themoviedb.org/3/getting-started/images -->
+              <% if poster_path %>
+                <img class="w-100" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= tvshow['name'] %>" >
+              <% end %>
+
             <% end %>
 
             <div class="card-body">
@@ -20,14 +23,15 @@
                 <%= tvshow['name'] %>
               </p>
 
-              <p class="card-subtitle">
-                <%= tvshow['origin_country'].first %> *
-                <%= tvshow['vote_average'] %> Rating *
-                <%= rating %> Votes
-              </p>
+              <%= content_tag :p, class: "card-info" do -%>
+                <%= tvshow['origin_country'].first %> <span class="ion-flag"></span>
+                <%= tvshow['vote_average'] %>  <span class="ion-star"></span>
+                <%= rating %> <span class="ion-person-add"></span>
+              <% end -%>
+
             </div>
 
-          </div>
-    <% end %>
+        </div>
+
   </div>
 <% end %>
