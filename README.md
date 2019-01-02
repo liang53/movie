@@ -20,17 +20,18 @@ This web application is a movie and tv show discovery application built using
 * Handle user entry errors.
 * Create a similar items feature.
 
-![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/movie_home.jpg?raw=true)
 
 ### Solution
 * Real time results - The application allows you to discover the most popular tv shows and movies currently in current time. The movie database api is called in real time to display the most updated results. This app will update continuously with minimal maintenance.
 
-![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/search.jpg?raw=true)
-
 * Search - The tool can run any searches on the keywords provided. It can search movies, tv shows, person, etc. It will only display items that are fully prepared for viewers with all information already uploaded. Simplified search functions will improve user experience.
-
-![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/show_page.jpg?raw=true)
 
 * Detail information - Clicking a single movie or tv show will load the page about the item chosen. There's information on the genre, year released, rating, and total votes. Total votes are included to help pin point the greatest shows from the popular ones.
 
 * The page is scalable. The application features dynamic sizing allowing user to view comfortably while adjusting the size
+
+![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/movie_home.jpg?raw=true)
+
+![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/search.jpg?raw=true)
+
+![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/show_page.jpg?raw=true)
