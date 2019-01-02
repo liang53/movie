@@ -29,6 +29,7 @@
 
   </div>
 
+  <br>
 
   <div class = "row">
     <div class="col-6 jumbotron">
@@ -36,33 +37,18 @@
         <span class = "show-text"><%= @tvshow['overview'] %></span>
     </div>
 
-    <div class = "col-6 ">
-      <br>
-      <ul class="list-unstyled ">
-        <li class="media">
+    <div class = "col-6">
+      <div class="w-100">
+        <% poster_path = @tvshow['last_episode_to_air']["still_path"] %>
+        <% if poster_path %>
+          <img class ="card-img-top" src="<%= "https://image.tmdb.org/t/p/w500/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-text">Last Episode : <%= @tvshow['last_episode_to_air']["name"] %></h5>
+          <p class="show-text"><%= @tvshow['last_episode_to_air']["overview"] %><p>
+        </div>
+      </div>
 
-          <% poster_path = @tvshow['last_episode_to_air']["still_path"] %>
-          <% if poster_path %>
-            <br>
-            <img class ="mr-3" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
-          <% end %>
-          <!-- <div class="media-body"> -->
-            <h5 class="mt-0 mb-1">Last Episode: <%= @tvshow['last_episode_to_air']["name"] %></h5>
-          <!-- </div> -->
-        </li>
-        <li class="media my-4">
-          <% poster_path = @tvshow['next_episode_to_air']["still_path"] %>
-          <% if poster_path %>
-            <img class ="mr-3" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
-          <% end %>
-          <!-- <div class="media-body"> -->
-            <h5 class="mt-0 mb-1">
-              Next Episode:
-              <%= @tvshow['next_episode_to_air']["name"] %>
-            </h5>
-          <!-- </div> -->
-        </li>
-      </ul>
     </div>
   </div>
 
