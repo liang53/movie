@@ -30,8 +30,14 @@ This web application is a movie and tv show discovery application built using
 
 * The page is scalable. The application features dynamic sizing allowing user to view comfortably while adjusting the size
 
+***
+
 ![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/movie_home.jpg?raw=true)
 
+***
+
 ![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/search.jpg?raw=true)
+
+***
 
 ![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/show_page.jpg?raw=true)
