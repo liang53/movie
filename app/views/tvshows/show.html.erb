@@ -56,7 +56,10 @@
             <img class ="mr-3" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= @tvshow['name'] %>" >
           <% end %>
           <!-- <div class="media-body"> -->
-            <h5 class="mt-0 mb-1">Next Episode: <%= @tvshow['next_episode_to_air']["name"] %></h5>
+            <h5 class="mt-0 mb-1">
+              Next Episode:
+              <%= @tvshow['next_episode_to_air']["name"] %>
+            </h5>
           <!-- </div> -->
         </li>
       </ul>

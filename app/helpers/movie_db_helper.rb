@@ -8,6 +8,7 @@ module MovieDbHelper
   # heroku securing api key
   # https://devcenter.heroku.com/articles/config-vars ENV['API_KEY']
 
+
   def get(path) # code generated from moviedb website
     url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")
 

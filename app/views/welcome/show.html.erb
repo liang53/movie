@@ -10,17 +10,25 @@
       <% media = result["media_type"] %>
       <% rating = result['vote_count']%>
       <% poster_path = result['poster_path'] %>
-      <% name = result['name'] %>
+
+      <% if media == "movie" %>
+        <% name = result['title'] %>
+      <% else %>
+        <% name = result['name'] %>
+      <% end %>
+
 
 
       <% if media == "movie" %>
         <div class="d-inline-flex justify-content-between" style="width: 14rem;">
-          <%= link_to(controller: 'movies', action: 'show', id:result['id']) do %>
+
 
               <div class="card">
                   <!-- https://developers.themoviedb.org/3/getting-started/images -->
-                  <% if poster_path %>
-                    <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
+                  <%= link_to(controller: 'movies', action: 'show', id:result['id']) do %>
+                    <% if poster_path %>
+                      <img class="" src="<%= "https://image.tmdb.org/t/p/w200/#{poster_path}" %>" alt="<%= name %>" >
+                    <% end %>
                   <% end %>
 
                   <div class="card-body">
@@ -28,14 +36,13 @@
                       <%= name %>
                     </p>
 
-                    <p class="card-subtitle">
+                    <p class="card-info">
                       <%= result['vote_average'] %> Rating *
                       <%= rating %> Votes
                     </p>
                   </div>
 
                 </div>
-          <% end %>
         </div>
 
       <% elsif media == "tv" %>
@@ -68,8 +75,6 @@
 
 
     <% end %>
-
-
 
 
   <% end %>
