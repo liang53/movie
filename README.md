@@ -41,3 +41,37 @@ This web application is a movie and tv show discovery application built using
 ***
 
 ![alt text](https://github.com/sml2008/movie/blob/master/app/assets/images/show_page.jpg?raw=true)
+
+
+### Technical Details
+The web application is built on Ruby on Rails with customized libraries for formatting (bootstrap, ionicons, and jQuery). The results returned are based on the api available on Movie Database. The structure is based on three main pages: welcome, tvshows, and movies.
+
+#### Welcome Page
+Welcome page is the landing page when the website is first loaded. Upon loading, it will display the navigation bar that includes a search bar. On the body of the page, it starts off with a photo carousel. Below the carousel, it shows the first page of the most popular tv shows and movies which is grouped under a page called "discover".
+
+#### Search Bar
+Search bar has a label search and all results will be directed to the show page under welcome.
+
+#### TV Shows and Movies
+The two sections for tv shows and movies will direct you to its specific group for show page. The show page is the movie/tv show/object selected for viewing. For instance, if a tv show was selected, it will direct the user to the tvshow/show page of the tv show. If a movie was selected, it will direct the user to the movie/show page of the movie
+
+
+#### To Use the Application
+Clone the application with
+
+```
+git clone https://github.com/sml2008/movie.git
+```
+
+In the helpers/movie_db_helper.rb, remove ENV['API_KEY']. The line is below
+
+```
+url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")
+
+```
+
+Replace it with your movie database api key generated from your account. If you are deploying to a hosting site, go to the hosting site for instructions on how to hide your api key.
+
+
+#### Hiding API key on Heroku
+[Read this](https://devcenter.heroku.com/articles/config-vars ) to understand how to configure your app to for API Keys
