@@ -13,6 +13,12 @@ class WelcomeController < ApplicationController
     #carousel gallery
     response = trending()
     @trending = response['results']
+
+    @images = []
+    @trending.each_with_index do |show, n|
+      poster_path = show['poster_path']
+      @images << "https://image.tmdb.org/t/p/original/#{poster_path}" # sizes 342,500,780
+    end
   end
 
   def show

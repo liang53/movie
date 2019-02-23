@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap";
+
 
 .card-info{
   font-size: .8rem;
@@ -33,19 +35,19 @@
   object-fit: none;
   position: relative;
   height: 100%;
-  width: 100%;
-  min-height: 30rem;
+  width: 50%;
+  min-height: 40rem;
   max-height: 30rem;
   overflow: hidden;
 }
 
 .gallery-image{
-  transform: translateY(-20%);
+  transform: translateY(-15%);
 }
 
-.caption{
+.carousel-caption{
   background-color: black;
-  // opacity: 0.5;
+  opacity: 0.5;
 }
 
 .show-text{
