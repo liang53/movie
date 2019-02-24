@@ -30,10 +30,26 @@
 
   <div class = "row">
     <div class="col-8 jumbotron">
-        <h4 >ABOUT</h4>
+        <h4>ABOUT</h4>
+        <p><%= @movie['overview'] %></p>
     </div>
 
-    <div class = "col-4">
+    <div class = "col-4 card-body">
+
+      <p class= "card-text"><strong>Now showing in</strong>
+        <% @movie['spoken_languages'].each do |lang| %>
+        <%= lang['name'] %>
+        <% end %> <br/>
+
+        <strong>Runtime</strong> <%= @movie['runtime'] %> minutes <br/>
+      </p>
+      <p>
+        <strong>Revenue</strong> $<%=@movie['revenue'] %><br/>
+        <strong>Budget</strong> $<%= @movie['budget'] %><br/>
+      </p>
+
+
+
     </div>
   </div>
 </div>
