@@ -29,13 +29,24 @@
 
 
   <div class = "row">
-    <div class="col-8 jumbotron">
-        <h4>ABOUT</h4>
-        <p><%= @movie['overview'] %></p>
+    <div class="col-8">
+        <!--video from youtube -->
+        <% result = @video["results"].first %>
+        <% if !result.nil? && result["site"] == "YouTube" %>
+          <iframe width=100% height=95%
+            src="https://www.youtube.com/embed/<%= result["key"] %>">
+          </iframe>
+        <% end %>
     </div>
 
-    <div class = "col-4 card-body">
+    <div class = "col-4 jumbotron">
+      <!--Movie Overview -->
+      <p>
+        <strong>Overview</strong>
+        <%= @movie['overview'] %>
+      </p>
 
+      <!--Movie Details -->
       <p class= "card-text"><strong>Now showing in</strong>
         <% @movie['spoken_languages'].each do |lang| %>
         <%= lang['name'] %>

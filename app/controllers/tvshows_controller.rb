@@ -7,6 +7,6 @@ class TvshowsController < ApplicationController
   def show
     type = "tv"
     @tvshow = find_by_id(params['id'],type)
-    p @tvshow
+    @video = get_videos(params['id'], type)
   end
 end

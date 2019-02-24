@@ -28,5 +28,8 @@ class WelcomeController < ApplicationController
       response = search_multi(@search)
       @search_results = response['results']
     end
+
+    type = "movie"
+    @video = get_videos(params['id'], type)
   end
 end

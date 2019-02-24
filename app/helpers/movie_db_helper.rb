@@ -8,6 +8,8 @@ module MovieDbHelper
   # heroku securing api key
   # https://devcenter.heroku.com/articles/config-vars ENV['API_KEY']
 
+  # this is the main method to call to retrieve results from moviedb
+  # all the methods below get(path) configures the url
 
   def get(path) # code generated from moviedb website
     url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")
@@ -43,6 +45,7 @@ module MovieDbHelper
 
   def search_multi(keywords) # keywords are strings of words
     k = keywords.gsub(" ", "%20")
+
     path = "/search/multi?include_adult=false&query=#{k}&language=en-US&api_key="
     response = get(path)
     return response
@@ -57,6 +60,13 @@ module MovieDbHelper
   def trending
     path = "/trending/all/day?api_key="
     response = get(path)
+    return response
+  end
+
+  def get_videos(id=nil, type)
+    path = "/#{type}/#{id}/videos?language=en-US&api_key="
+    response = get(path)
+    p response
     return response
   end
 
