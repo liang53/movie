@@ -13,15 +13,7 @@ module MovieDbHelper
 
   def get(path) # code generated from moviedb website
     url = URI("#{HOST_URL}#{path}#{ENV['API_KEY']}")
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-    request = Net::HTTP::Get.new(url)
-    request.body = "{}"
-    response = http.request(request)
-
+    response = Net::HTTP.get_response(url)
     begin
       response_hash = JSON.parse(response.read_body)
       return response_hash
